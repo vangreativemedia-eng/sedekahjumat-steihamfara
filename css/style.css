@@ -107,7 +107,7 @@ a {
   }
 }
 
-/* Hero Section */
+/* Hero Section & Enhanced Readability */
 .hero {
   background-color: var(--pine);
   background-image: url("../assets/latar.jpg");
@@ -121,7 +121,12 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 25% 15%, rgba(86,168,120,.5), transparent 60%);
+  background: linear-gradient(
+    135deg,
+    rgba(11, 46, 32, 0.88) 0%,
+    rgba(19, 74, 51, 0.78) 60%,
+    rgba(11, 46, 32, 0.85) 100%
+  );
   pointer-events: none;
 }
 
@@ -147,17 +152,25 @@ a {
   color: #d9e8e2;
 }
 
+/* Facts / Centang dibuat dalam Box Elegan */
 .facts {
   list-style: none;
-  padding: 0;
+  padding: 1rem 1.2rem;
   margin: 1.25rem 0;
   display: grid;
-  gap: .5rem;
+  gap: .65rem;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 14px;
 }
 
 .facts li {
   padding-left: 1.6rem;
   position: relative;
+  color: #ffffff;
+  font-weight: 500;
 }
 
 .facts li::before {
@@ -230,19 +243,46 @@ legend {
   margin-bottom: .4rem;
 }
 
+.seg {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--mist);
+  border-radius: 12px;
+  padding: 4px;
+}
+
+.seg label, .chips label {
+  position: relative;
+}
+
+.seg input, .chips input {
+  position: absolute;
+  opacity: 0;
+}
+
+.seg span {
+  display: block;
+  text-align: center;
+  padding: .6rem;
+  border-radius: 9px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.seg input:checked + span {
+  background: var(--pine);
+  color: #fff;
+}
+
+.seg input:focus-visible + span, .chips input:focus-visible + span {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
 .chips {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: .5rem;
-}
-
-.chips label {
-  position: relative;
-}
-
-.chips input {
-  position: absolute;
-  opacity: 0;
 }
 
 .chips span {
@@ -259,11 +299,6 @@ legend {
   background: var(--pine);
   border-color: var(--pine);
   color: #fff;
-}
-
-.chips input:focus-visible + span {
-  outline: 3px solid var(--focus);
-  outline-offset: 2px;
 }
 
 .field {
@@ -344,6 +379,54 @@ legend {
   border-radius: 12px;
 }
 
+/* Box Nomor Rekening yang Elegan & Terstruktur */
+.bank {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  background: linear-gradient(180deg, #ffffff 0%, #f4f8f6 100%);
+  border: 1.5px solid #c6d8cf;
+  border-left: 5px solid var(--sun);
+  border-radius: 12px;
+  padding: 1.1rem 1.2rem;
+  box-shadow: 0 6px 18px -8px rgba(19, 74, 51, 0.18);
+}
+
+.bank span:first-child {
+  display: inline-block;
+  background: var(--pine);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+}
+
+.bank b {
+  display: block;
+  font: 700 1.55rem var(--fd);
+  color: var(--pine);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  margin: 0.15rem 0;
+}
+
+.bank small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.bank button {
+  justify-self: stretch;
+  margin-top: .4rem;
+  width: 100%;
+}
+
 .btn {
   display: block;
   text-align: center;
@@ -400,7 +483,7 @@ legend {
   display: none;
 }
 
-/* Sidebar & FAQ */
+/* Sidebar & Box Narahubung (Opacity Putih Lebih Tinggi & Nama Emas) */
 .side {
   display: grid;
   gap: .75rem;
@@ -419,21 +502,27 @@ legend {
   gap: .75rem 1.25rem;
   width: 100%;
   max-width: 440px;
-  background: rgba(255,255,255,.1);
-  border: 1px solid rgba(217,177,95,.55);
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(217, 177, 95, 0.75);
+  box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.35);
   border-radius: 14px;
-  padding: 1rem 1.1rem;
+  padding: 1.1rem 1.2rem;
 }
 
 .cp small {
   display: block;
-  color: #d9e8e2;
+  color: #f1f5f2;
   font-size: .85rem;
 }
 
 .cp b {
   display: block;
-  font: 700 1.1rem var(--fd);
+  font: 700 1.2rem var(--fd);
+  color: var(--sun);
+  margin: 0.15rem 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .sec {

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Infaq & Shadaqah Kampus</title>
+<meta name="description" content="Infaq dan shadaqah kampus: pilih nominal, bayar lewat QRIS atau transfer, konfirmasi lewat WhatsApp. Laporan terbuka setiap pekan.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230E3B36'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23F0A93B'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="#beri">Infaq & Shadaqah <span data-bind="kampus">Kampus Kita</span></a>
+    <nav aria-label="Navigasi utama"><a href="#laporan">Laporan</a><a href="#penyaluran">Penyaluran</a><a href="#tanya">Tanya jawab</a></nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="beri">
+  <div class="wrap hero-in">
+    <div class="hero-copy">
+      <h1>Infaq dan shadaqah, cukup satu menit.</h1>
+      <p>Pilih nominal, bayar lewat QRIS atau transfer, lalu konfirmasi. Seluruh dana dilaporkan terbuka setiap pekan.</p>
+      <ul class="facts">
+        <li>Tanpa akun dan tanpa aplikasi</li>
+        <li>Laporan pemasukan dan penyaluran terbuka</li>
+        <li>Konfirmasi langsung lewat WhatsApp</li>
+      </ul>
+      <p class="deadline">Pengumpulan pekan ini ditutup <strong id="tutup">Jumat</strong>.</p>
+    </div>
+
+    <div class="card" id="form">
+      <fieldset>
+        <legend>Jenis</legend>
+        <div class="seg">
+          <label><input type="radio" name="jenis" value="Infaq" checked><span>Infaq</span></label>
+          <label><input type="radio" name="jenis" value="Shadaqah"><span>Shadaqah</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Nominal</legend>
+        <div class="chips" id="chips"></div>
+        <label class="field">Nominal lain
+          <div class="rp"><span>Rp</span><input id="custom" inputmode="numeric" autocomplete="off" placeholder="0"></div>
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Nama</legend>
+        <label class="field"><span class="sr">Nama</span><input id="nama" autocomplete="name" placeholder="Nama kamu"></label>
+        <label class="check"><input type="checkbox" id="anonim"> Tampilkan sebagai Hamba Allah</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Bayar lewat</legend>
+        <div class="tabs" role="tablist">
+          <button role="tab" aria-selected="true" aria-controls="p-qris" id="t-qris">QRIS</button>
+          <button role="tab" aria-selected="false" aria-controls="p-bank" id="t-bank">Transfer bank</button>
+        </div>
+        <div class="panel" id="p-qris" role="tabpanel" aria-labelledby="t-qris">
+          <img id="qris" alt="Kode QRIS" width="220" height="220">
+          <a class="btn ghost" id="qris-dl" download>Unduh QRIS</a>
+        </div>
+        <div class="panel" id="p-bank" role="tabpanel" aria-labelledby="t-bank" hidden></div>
+      </fieldset>
+
+      <div class="confirm">
+        <p id="ringkas" aria-live="polite">Pilih nominal untuk melanjutkan.</p>
+        <p class="err" id="err" role="alert" hidden></p>
+        <a class="btn" id="wa" href="#">Konfirmasi lewat WhatsApp</a>
+        <a class="btn ghost" id="gform" href="#" hidden target="_blank" rel="noopener">Isi form konfirmasi</a>
+        <small>Setelah transfer, kirim bukti pembayaran agar pengurus dapat mencatat dan melaporkannya.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap sec" id="laporan">
+  <h2>Laporan pekanan</h2>
+  <p class="note" id="contoh" hidden>Data di bawah adalah contoh. Ganti isinya di <code>js/data.js</code>.</p>
+  <dl class="sum" id="sum"></dl>
+  <div class="bars" id="bars" aria-hidden="true"></div>
+  <div class="scroll"><table><thead><tr><th>Pekan</th><th>Masuk</th><th>Disalurkan</th></tr></thead><tbody id="rows"></tbody></table></div>
+</section>
+
+<section class="wrap sec" id="penyaluran">
+  <h2>Penyaluran terbaru</h2>
+  <div class="grid" id="salur"></div>
+</section>
+
+<section class="wrap sec" id="tanya">
+  <h2>Tanya jawab</h2>
+  <details><summary>Apa bedanya infaq dan shadaqah?</summary><p>Infaq adalah harta yang dikeluarkan untuk kebaikan. Shadaqah cakupannya lebih luas, termasuk kebaikan non-materi. Di halaman ini keduanya dikelola dan dilaporkan bersama.</p></details>
+  <details><summary>Apakah harus konfirmasi?</summary><p>Tidak wajib, tetapi konfirmasi membantu pengurus mencocokkan dana masuk dan menyusun laporan yang akurat.</p></details>
+  <details><summary>Siapa yang mengelola dana ini?</summary><p><span data-bind="pengelola">Pengurus</span>. Pemasukan dan penyaluran dilaporkan di halaman ini setiap pekan.</p></details>
+</section>
+</main>
+
+<footer><div class="wrap">© <span id="yr"></span> <span data-bind="pengelola">Pengurus</span>. Dana hanya diterima melalui rekening dan QRIS resmi di halaman ini.</div></footer>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="js/config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

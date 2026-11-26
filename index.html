@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <link rel="stylesheet" href="style.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Infaq & Shadaqah Kampus</title>
-<meta name="description" content="Infaq dan shadaqah kampus: pilih nominal, bayar lewat QRIS atau transfer, konfirmasi lewat WhatsApp. Laporan terbuka setiap pekan.">
+<title>Sedekah Jum'at Berkah STEI Hamfara</title>
+<meta name="description" content="Sedekah Jum'at Berkah STEI Hamfara Yogyakarta: pilih nominal, transfer, konfirmasi lewat WhatsApp. Dana untuk konsumsi Jum'at bersih dan makan siang jamaah.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230E3B36'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23F0A93B'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,8 +14,8 @@
 <body>
 <header class="top">
   <div class="wrap top-in">
-    <a class="brand" href="#beri">Infaq & Shadaqah <span data-bind="kampus">Kampus Kita</span></a>
-    <nav aria-label="Navigasi utama"><a href="#laporan">Laporan</a><a href="#penyaluran">Penyaluran</a><a href="#tanya">Tanya jawab</a></nav>
+    <a class="brand" href="#beri"><img class="logo" src="assets/logo.png" alt="Logo STEI Hamfara" onerror="this.remove()"><span>Sedekah Jum'at Berkah <span data-bind="kampus">STEI Hamfara</span></span></a>
+    <nav aria-label="Navigasi utama"><a href="#tanya">Tanya jawab</a></nav>
   </div>
 </header>
 
@@ -24,25 +23,17 @@
 <section class="hero" id="beri">
   <div class="wrap hero-in">
     <div class="hero-copy">
-      <h1>Infaq dan shadaqah, cukup satu menit.</h1>
-      <p>Pilih nominal, bayar lewat QRIS atau transfer, lalu konfirmasi. Seluruh dana dilaporkan terbuka setiap pekan.</p>
+      <h1>Sedekah Jum'at Berkah</h1>
+      <p>Mulai Rp 10.000 atau lebih. Insya Allah 100% untuk konsumsi Jum'at bersih dan makan siang jamaah sholat Jum'at, yaitu mahasiswa dan santri STEI Hamfara Yogyakarta.</p>
       <ul class="facts">
         <li>Tanpa akun dan tanpa aplikasi</li>
-        <li>Laporan pemasukan dan penyaluran terbuka</li>
+        <li>Transfer dari bank mana pun</li>
         <li>Konfirmasi langsung lewat WhatsApp</li>
       </ul>
-      <p class="deadline">Pengumpulan pekan ini ditutup <strong id="tutup">Jumat</strong>.</p>
+      <p class="deadline">Sedekah Jum'at pekan ini: <strong id="tutup">Jum'at</strong></p>
     </div>
 
     <div class="card" id="form">
-      <fieldset>
-        <legend>Jenis</legend>
-        <div class="seg">
-          <label><input type="radio" name="jenis" value="Infaq" checked><span>Infaq</span></label>
-          <label><input type="radio" name="jenis" value="Shadaqah"><span>Shadaqah</span></label>
-        </div>
-      </fieldset>
-
       <fieldset>
         <legend>Nominal</legend>
         <div class="chips" id="chips"></div>
@@ -78,35 +69,28 @@
         <small>Setelah transfer, kirim bukti pembayaran agar pengurus dapat mencatat dan melaporkannya.</small>
       </div>
     </div>
+    <div class="side">
+      <div class="cp">
+        <div><small>Ada pertanyaan? Hubungi narahubung</small><b data-bind="cp">Pengurus</b><small id="cp-num"></small></div>
+        <a class="btn ghost" id="cp-wa" href="#" target="_blank" rel="noopener">Chat WhatsApp</a>
+      </div>
+      <button class="btn ghost" id="share" type="button">Bagikan ke teman</button>
+    </div>
   </div>
-</section>
-
-<section class="wrap sec" id="laporan">
-  <h2>Laporan pekanan</h2>
-  <p class="note" id="contoh" hidden>Data di bawah adalah contoh. Ganti isinya di <code>js/data.js</code>.</p>
-  <dl class="sum" id="sum"></dl>
-  <div class="bars" id="bars" aria-hidden="true"></div>
-  <div class="scroll"><table><thead><tr><th>Pekan</th><th>Masuk</th><th>Disalurkan</th></tr></thead><tbody id="rows"></tbody></table></div>
-</section>
-
-<section class="wrap sec" id="penyaluran">
-  <h2>Penyaluran terbaru</h2>
-  <div class="grid" id="salur"></div>
 </section>
 
 <section class="wrap sec" id="tanya">
   <h2>Tanya jawab</h2>
-  <details><summary>Apa bedanya infaq dan shadaqah?</summary><p>Infaq adalah harta yang dikeluarkan untuk kebaikan. Shadaqah cakupannya lebih luas, termasuk kebaikan non-materi. Di halaman ini keduanya dikelola dan dilaporkan bersama.</p></details>
+  <details><summary>Untuk apa dana sedekah ini digunakan?</summary><p>Insya Allah 100% untuk konsumsi Jum'at bersih dan makan siang jamaah sholat Jum'at, yaitu mahasiswa dan santri yang sedang menuntut ilmu di STEI Hamfara Yogyakarta.</p></details>
   <details><summary>Apakah harus konfirmasi?</summary><p>Tidak wajib, tetapi konfirmasi membantu pengurus mencocokkan dana masuk dan menyusun laporan yang akurat.</p></details>
-  <details><summary>Siapa yang mengelola dana ini?</summary><p><span data-bind="pengelola">Pengurus</span>. Pemasukan dan penyaluran dilaporkan di halaman ini setiap pekan.</p></details>
+  <details><summary>Siapa yang mengelola dana ini?</summary><p>Dana dikelola oleh <span data-bind="pengelola">pengurus</span> dan diterima melalui rekening resmi atas nama Yayasan Hamfara.</p></details>
 </section>
 </main>
 
-<footer><div class="wrap">© <span id="yr"></span> <span data-bind="pengelola">Pengurus</span>. Dana hanya diterima melalui rekening dan QRIS resmi di halaman ini.</div></footer>
+<footer><div class="wrap">© <span id="yr"></span> <span data-bind="pengelola">Pengurus</span>. Dana hanya diterima melalui rekening resmi yang tercantum di halaman ini.<p class="credit">Powered by <strong>Vangreative Media</strong> & <strong>Firdaus Media</strong></p></div></footer>
 <div class="toast" id="toast" role="status"></div>
 
 <script src="js/config.js"></script>
-<script src="js/data.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
